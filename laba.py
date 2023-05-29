@@ -1,4 +1,4 @@
-#комментарии
+#новые комментарии 
 # Создаем граф
 graph = {
     'a': ['b', 'c'],
@@ -38,4 +38,4 @@ try:
         print(f"Путь от вершины {a} до вершины {b} не найден")
 except ValueError as e:
     print(str(e))
-print ("Hello World")
+print ("Hello World2")
