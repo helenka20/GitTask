@@ -1,23 +1,15 @@
-# будем использовать словарь для хранения списка смежности графа
-graph = {
-    '1': ['3'],
-    '2': ['4'],
-    '3': [],
-    '4': ['2']
-}
+def dfs(graph, start, end, path=[]):
+    path = path + [start]
+    if start == end:
+        return len(path)-1
+    for node in graph[start]:
+        if node not in path:
+            newpath = dfs(graph, node, end, path)
+            if newpath is not None:
+                return newpath
 
-# функция обхода графа в глубину
-def dfs(vertex, visited):
-    visited.add(vertex) # добавляем вершину в множество посещенных
-    print(vertex, end=" ")
-    for neighbor in graph[vertex]: # проходим по всем соседним вершинам
-        if neighbor not in visited: # если вершина еще не посещена, посещаем ее рекурсивно
-            dfs(neighbor, visited) 
-
-# стартовая вершина и множество посещенных вершин
-start_vertex = '1'
-visited_vertices = set()
-
-# запускаем обход графа
-dfs(start_vertex, visited_vertices)
+graph = {1: [2,3], 2: [1,4], 3: [1], 4: [2]}
+start = 2
+end = 4
+print(dfs(graph, start, end))
 
