@@ -37,5 +37,8 @@ try:
     else:
         print(f"Путь от вершины {a} до вершины {b} не найден")
 except ValueError as e:
+<<<<<<< HEAD
     print(str(e))
     print ("Hello World") #измененный comment5
+=======
+    print(str(e)); #измененный comment5
